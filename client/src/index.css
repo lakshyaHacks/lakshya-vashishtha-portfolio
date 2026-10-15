@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------- Theme tokens (R G B triplets, used by tailwind.config.js) ---------- */
+:root,
+:root[data-theme='dark'] {
+  --bg: 5 7 13;            /* obsidian */
+  --surface: 11 18 36;     /* midnight blue */
+  --ink: 232 241 255;      /* icy white */
+  --muted: 142 158 186;
+  --line: 36 50 82;
+  --accent: 77 227 255;    /* electric cyan - the single accent */
+  --on-accent: 5 7 13;
+  color-scheme: dark;
+}
+:root[data-theme='light'] {
+  --bg: 244 246 250;       /* cool paper */
+  --surface: 255 255 255;
+  --ink: 12 22 48;         /* ink navy */
+  --muted: 82 96 124;
+  --line: 207 214 228;
+  --accent: 0 112 150;     /* deepened cyan so text keeps contrast on white */
+  --on-accent: 255 255 255;
+  color-scheme: light;
+}
+
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
+body {
+  background: rgb(var(--bg));
+  color: rgb(var(--ink));
+  font-family: Manrope, system-ui, sans-serif;
+  transition: background-color .3s ease, color .3s ease;
+  -webkit-font-smoothing: antialiased;
+}
+::selection { background: rgb(var(--accent) / .3); }
+
+:focus-visible { outline: 2px solid rgb(var(--accent)); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- Hero background: fine grid + pointer glow ---------- */
+.grid-bg {
+  background-image:
+    linear-gradient(rgb(var(--line) / .5) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(var(--line) / .5) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, #000 30%, transparent 75%);
+}
+.pointer-glow {
+  background: radial-gradient(520px circle at var(--mx, 70%) var(--my, 40%), rgb(var(--accent) / .14), transparent 70%);
+}
+
+/* ---------- Orbital system ---------- */
+@keyframes spin { to { transform: rotate(360deg); } }
+.ring { position: absolute; border-radius: 9999px; border: 1px solid rgb(var(--line)); animation: spin var(--dur, 40s) linear infinite; }
+.ring-node { position: absolute; transform: translate(-50%, -50%); }
+.ring-node > span { display: block; animation: spin var(--dur, 40s) linear infinite reverse; }
+@keyframes pulse-ring { 0%,100% { opacity: .35; transform: scale(1); } 50% { opacity: .9; transform: scale(1.06); } }
+.core-pulse { animation: pulse-ring 4s ease-in-out infinite; }
+@keyframes scroll-cue { 0% { transform: translateY(-100%); } 100% { transform: translateY(100%); } }
+.scroll-cue { animation: scroll-cue 1.8s ease-in-out infinite; }
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1s steps(1) infinite; }
+
+/* ---------- Reduced motion: stop everything decorative ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .ring, .ring-node > span, .core-pulse, .scroll-cue, .caret { animation: none !important; }
+  * { transition-duration: .01ms !important; }
+}
+
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
