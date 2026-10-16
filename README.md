@@ -2,8 +2,9 @@
 
 Personal portfolio of **Lakshya Vashishtha**, a B.Tech CSE student at JK Lakshmipat University, built with the MERN stack for the MERN Stack course assignment.
 
-> **Live site:** _add after deployment_ (frontend on Vercel/Netlify)
-> **API:** _add after deployment_ (backend on Render/Railway), health check at `/api/health`
+> **Live site:** https://lakshya-vashishtha-portfolio.vercel.app
+> **API:** https://nexus-portfolio-i98f.onrender.com
+> **API health check:** https://nexus-portfolio-i98f.onrender.com/api/health
 
 ## Features
 
