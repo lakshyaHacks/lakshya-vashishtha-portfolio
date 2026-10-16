@@ -71,7 +71,7 @@ export const skillGroups = [
       { name: 'Git & GitHub', level: 65 },
       { name: 'Python', level: 70 },
       { name: 'MongoDB Atlas', level: 55 },
-      { name: 'Netlify', level: 60 },
+      { name: 'Vercel', level: 60 },
     ],
   },
 ];
