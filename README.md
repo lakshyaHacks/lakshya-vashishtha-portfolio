@@ -101,7 +101,12 @@ npm run dev                 # http://localhost:5173 (proxies /api to :5000)
 
 ## Screenshots
 
-_Add screenshots of the hero, projects and both themes here after running the app._
+<img width="1917" height="982" alt="image" src="https://github.com/user-attachments/assets/d066c2c5-bcf4-4b83-95fa-e79601e0b0fc" />
+
+<img width="1917" height="981" alt="image" src="https://github.com/user-attachments/assets/49566f01-4404-44e2-8054-807d75047a8a" />
+
+<img width="1917" height="976" alt="image" src="https://github.com/user-attachments/assets/973b98c5-9500-4ddf-b71a-d38cecf0852e" />
+
 
 ## Tests
 
